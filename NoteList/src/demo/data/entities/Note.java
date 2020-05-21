@@ -33,6 +33,10 @@ public class Note {
 	@ManyToOne
 	private User user;
 
+	public Note() {
+		
+	}
+	
 	public Note(String subject, String content) {
 		super();
 		this.subject = subject;

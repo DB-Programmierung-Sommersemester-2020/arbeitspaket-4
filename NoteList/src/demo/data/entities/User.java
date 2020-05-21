@@ -32,6 +32,9 @@ public class User {
 	@JoinColumn(name="userId")
 	private List<Note> notes;
 
+	public User() {
+		
+	}
 	public User(String name, String password, String email) {
 		super();
 		this.name = name;
