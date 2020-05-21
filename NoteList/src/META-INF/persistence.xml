@@ -8,8 +8,8 @@
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<non-jta-data-source>java:/comp/env/jdbc/Notes</non-jta-data-source>
-		<class>demo.model.Note</class>
-		<class>demo.model.User</class>
+		<class>demo.data.entities.Note</class>
+		<class>demo.data.entities.User</class>
 		<properties>
 			<!-- Uncomment to get log sql log output -->
 			<!-- <property name="eclipselink.logging.level" value="OFF" /> -->
