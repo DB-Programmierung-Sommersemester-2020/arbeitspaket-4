@@ -1,29 +1,39 @@
-package demo.model;
+package demo.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class UserManager
-{
-   private static UserManager instance = new UserManager();
+import demo.data.entities.User;
+import demo.data.facade.UserNotesFacade;
 
-   public static UserManager getInstance()
+
+public class UserController
+{
+   private static UserController instance = new UserController();
+   private UserNotesFacade facade = UserNotesFacade.getInstance();
+   
+   public static UserController getInstance()
    {
-      return UserManager.instance;
+      return UserController.instance;
    }
 
    private Map<String, User> users = new HashMap<>();
-   private int userIdCounter = 1;
+   
 
-   private UserManager()
+   private UserController()
    {
       super();
+      fillUsersMap();
+   }
+   
+   private void fillUsersMap() {
+	   facade.getAllUsers().forEach(user->users.put(user.getName(), user));
    }
 
    public Optional<User> lookupUser(String username)
    {
-      return this.users.values().stream().filter(user -> user.getUsername().equals(username)).findFirst();
+      return this.users.values().stream().filter(user -> user.getName().equals(username)).findFirst();
    }
 
    public User register(String username, String password, String email)
@@ -35,9 +45,9 @@ public class UserManager
       }
       else
       {
-         User user = new User(userIdCounter,username, password, email);
+         User user = new User(username, password, email);
          this.users.put(username, user);
-         userIdCounter++;
+         facade.createUser(user);
          return user;
       }
    }
