@@ -88,7 +88,7 @@ public class UserController {
 			byte[] pwdHash = generatePassword(password, salt);
 			
 			
-			User user = new User(username, password, email);
+			User user = new User(username, "myDummyP@$$word", email); //permanent pwd solution for User-Entity...
 			this.users.put(username, user);
 			facade.createUser(user);
 			facade.createPassword(new Password(user.getId(),pwdHash,salt));
