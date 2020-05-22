@@ -13,8 +13,8 @@
 		<properties>
 			<!-- Uncomment to get log sql log output -->
 			<!-- <property name="eclipselink.logging.level" value="OFF" /> -->
-			<property name="eclipselink.ddl-generation" value="create-tables"/>
-			<property name="eclipselink.logging.level.sql" value="FINE" />
+			<!--<property name="eclipselink.ddl-generation" value="create-tables"/>  -->
+			<!-- <property name="eclipselink.logging.level.sql" value="FINE" /> -->
 		</properties>
 	</persistence-unit>
 </persistence>

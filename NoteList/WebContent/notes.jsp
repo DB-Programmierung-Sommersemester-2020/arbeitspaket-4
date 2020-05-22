@@ -11,7 +11,7 @@
 <body>
 	<h2>
 		Notizen von
-		<c:out value="${User.username}" />
+		<c:out value="${User.name}" />
 	</h2>
 
 	<table>
