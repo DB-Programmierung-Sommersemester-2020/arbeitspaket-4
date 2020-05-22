@@ -10,15 +10,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "notes")
+@Table(name = "Notes")
 public class Note {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name = "subject", length = 100)
@@ -30,8 +31,8 @@ public class Note {
 	@Column(name = "date", length = 100)
 	private String date;
 
-	@ManyToOne
-	private User user;
+	@Column(name = "userId")
+	private int userId;
 
 	public Note() {
 		
@@ -71,9 +72,7 @@ public class Note {
 		return date;
 	}
 
-	public User getUser() {
-		return user;
-	}
+	
 
 	@Override
 	public int hashCode() {
