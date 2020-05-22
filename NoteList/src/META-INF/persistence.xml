@@ -10,6 +10,7 @@
 		<non-jta-data-source>java:/comp/env/jdbc/Notes</non-jta-data-source>
 		<class>demo.data.entities.Note</class>
 		<class>demo.data.entities.User</class>
+		<class>demo.data.entities.Password</class>
 		<properties>
 			<!-- Uncomment to get log sql log output -->
 			<!-- <property name="eclipselink.logging.level" value="OFF" /> -->
